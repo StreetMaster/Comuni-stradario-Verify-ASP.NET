@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://verifyWS.streetmaster/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="verify" targetNamespace="http://verifyWS.streetmaster/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ec2-46-137-97-173.eu-west-1.compute.amazonaws.com:80/smws/verify?xsd=1" namespace="http://verifyWS.streetmaster/" />
+    </xsd:schema>
+  </types>
+  <message name="Verify">
+    <part name="parameters" element="tns:Verify" />
+  </message>
+  <message name="VerifyResponse">
+    <part name="parameters" element="tns:VerifyResponse" />
+  </message>
+  <portType name="Verify">
+    <operation name="Verify">
+      <input wsam:Action="http://verifyWS.streetmaster/Verify/VerifyRequest" message="tns:Verify" />
+      <output wsam:Action="http://verifyWS.streetmaster/Verify/VerifyResponse" message="tns:VerifyResponse" />
+    </operation>
+  </portType>
+  <binding name="VerifyPortBinding" type="tns:Verify">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Verify">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="verify">
+    <port name="VerifyPort" binding="tns:VerifyPortBinding">
+      <soap:address location="http://ec2-46-137-97-173.eu-west-1.compute.amazonaws.com:80/smws/verify" />
+    </port>
+  </service>
+</definitions>
