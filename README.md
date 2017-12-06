@@ -1,6 +1,6 @@
 # Comuni italiani e stradario. Webservice di verifica e correzione.
-# Demo Verify ASP.NET
-Comuni italiani e stradario. Demo ASP.NET per l'utilizzo del ws soap VERIFY. Gratuito per le prime 250 chiamate mensili.
+# Verify ASP.NET
+Comuni italiani e stradario. Soluzione ASP.NET per l'utilizzo del ws soap VERIFY. Gratuito per le prime 250 chiamate mensili.
 
 ### Ambiente di sviluppo:
   - C#
