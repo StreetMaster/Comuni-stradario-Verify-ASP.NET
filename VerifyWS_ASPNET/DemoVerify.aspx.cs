@@ -7,7 +7,7 @@ namespace VerifyWS_ASPNET
     /// realizzato da StreetMaster Italia
     /// 
     /// L'end point del servizio è 
-    ///     http://ec2-46-137-97-173.eu-west-1.compute.amazonaws.com/smws/verify?wsdl
+    ///     https://streetmaster.streetmaster.it/smws/verify?wsdl
     ///     
     /// Per l'utilizzo registrarsi sul sito http://streetmaster.it e richiedere la chiave per il servizio VERIFY 
     /// 
@@ -30,14 +30,15 @@ namespace VerifyWS_ASPNET
             var verifyObj = new VerifyWS.verify();
 
             // classe di input
-            var inVerify = new VerifyWS.inputCommon();
-
-            // valorizzazione input
-            inVerify.cap = txtCap.Text;
-            inVerify.provincia = txtProv.Text;
-            inVerify.localita = txtComune.Text;
-            inVerify.localita2 = txtFrazione.Text;
-            inVerify.indirizzo = txtIndirizzo.Text;
+            var inVerify = new VerifyWS.inputCommon
+            {
+                // valorizzazione input
+                cap = txtCap.Text,
+                provincia = txtProv.Text,
+                localita = txtComune.Text,
+                localita2 = txtFrazione.Text,
+                indirizzo = txtIndirizzo.Text
+            };
 
             // chiamata al servizio
             var outCall = verifyObj.Verify(inVerify, txtKey.Text);
@@ -66,7 +67,7 @@ namespace VerifyWS_ASPNET
                     outArea.InnerHtml = "<p><font color=\"red\">COMUNE\\FRAZIONE NON RICONOSCIUTO</font></p>";
                 else if (outCall.codErr == 125)
                 {
-                    String htmlOut= "<p><font color=\"red\">COMUNE\\FRAZIONE AMBIGUO</font></p>";
+                    var htmlOut= "<p><font color=\"red\">COMUNE\\FRAZIONE AMBIGUO</font></p>";
 
                     htmlOut += "<table>";
                     foreach (VerifyWS.outVerify outElem in outCall.outItem)
@@ -103,7 +104,7 @@ namespace VerifyWS_ASPNET
                     txtProv.Text = outCall.outItem[0].provincia;
                     txtComune.Text = outCall.outItem[0].comune;
                 
-                    String htmlOut = "<p><font color=\"red\">INDIRIZZO AMBIGUO</font></p>";
+                    var htmlOut = "<p><font color=\"red\">INDIRIZZO AMBIGUO</font></p>";
                     htmlOut += "<table>";
                     foreach (VerifyWS.outVerify outElem in outCall.outItem)
                     {

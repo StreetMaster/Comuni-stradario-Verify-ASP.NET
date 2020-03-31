@@ -2,7 +2,7 @@
 <definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://verifyWS.streetmaster/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="verify" targetNamespace="http://verifyWS.streetmaster/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://ec2-46-137-97-173.eu-west-1.compute.amazonaws.com:80/smws/verify?xsd=1" namespace="http://verifyWS.streetmaster/" />
+      <xsd:import schemaLocation="https://streetmaster.streetmaster.it/smws/verify?xsd=1" namespace="http://verifyWS.streetmaster/" />
     </xsd:schema>
   </types>
   <message name="Verify">
@@ -31,7 +31,7 @@
   </binding>
   <service name="verify">
     <port name="VerifyPort" binding="tns:VerifyPortBinding">
-      <soap:address location="http://ec2-46-137-97-173.eu-west-1.compute.amazonaws.com:80/smws/verify" />
+      <soap:address location="https://streetmaster.streetmaster.it/smws/verify" />
     </port>
   </service>
 </definitions>
