@@ -9,7 +9,7 @@ Comuni italiani e stradario. Soluzione ASP.NET per l'utilizzo del ws soap VERIFY
 
 ### Endpoint
 ```
-     http://ec2-46-137-97-173.eu-west-1.compute.amazonaws.com/smws/verify?wsdl
+     https://streetmaster.streetmaster.it/smws/verify?wsdl
 ```
 
 ### Key
